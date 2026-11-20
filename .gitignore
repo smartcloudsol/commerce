@@ -1,0 +1,10 @@
+*.zip
+/admin/public
+/**/node_modules
+/**/paid-features
+/**/protected
+/**/scripts
+/**/publish
+/**/index.html
+/vendor/
+node_modules.*/
