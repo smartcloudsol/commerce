@@ -60,7 +60,7 @@ Stripe is a trademark of Stripe, Inc. WordPress is a trademark of the WordPress 
 
 == Source and build ==
 
-Readable JavaScript and TypeScript source and build instructions are included in source/. The shared WP Suite Hub source is maintained at https://github.com/smartcloudsol/smartcloud-wpsuite.
+Readable JavaScript and TypeScript source and build instructions are included in source/. The [Commerce source repository](https://github.com/smartcloudsol/commerce) and [shared WP Suite Hub source](https://github.com/smartcloudsol/hub-for-wpsuiteio) are also available on GitHub.
 
 == Changelog ==
 
