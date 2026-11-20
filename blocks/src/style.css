@@ -1,0 +1,41 @@
+/* Editor previews only. Frontend styles are maintained separately. */
+:where(.editor-styles-wrapper .sc-commerce-editor-button) {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: .5em;
+ padding: .7em 1.25em;
+ border: 1px solid transparent;
+ border-radius: .45em;
+ font: inherit;
+ font-weight: 600;
+ cursor: default;
+}
+:where(.editor-styles-wrapper .sc-commerce-editor-button:not(.has-background)) { background: var(--wp--preset--color--contrast, #132033); }
+:where(.editor-styles-wrapper .sc-commerce-editor-button:not(.has-text-color)) { color: var(--wp--preset--color--base, #fff); }
+:where(.editor-styles-wrapper .sc-commerce-editor-button.is-style-outline:not(.has-background)) {
+ background: transparent;
+}
+:where(.editor-styles-wrapper .sc-commerce-editor-button.is-style-outline) {
+ border-color: currentColor;
+}
+:where(.editor-styles-wrapper .sc-commerce-editor-button.is-style-outline:not(.has-text-color)) { color: var(--wp--preset--color--contrast, #132033); }
+:where(.editor-styles-wrapper .sc-commerce-editor-button[data-commerce-width="full"]) { width: 100%; }
+:where(.editor-styles-wrapper .sc-commerce-editor-card),
+:where(.editor-styles-wrapper .sc-commerce-editor-stripe) {
+ padding: 1.25rem 1.5rem;
+ border: 1px solid #d9e0e8;
+ border-radius: .65rem;
+ background: #fff;
+ color: #263549;
+}
+:where(.editor-styles-wrapper .sc-commerce-editor-stripe) {
+ border-style: dashed;
+ background: #f7f9fc;
+}
+:where(.editor-styles-wrapper .sc-commerce-editor-card.is-style-subtle) {
+ border-color: transparent;
+ background: #f4f6f9;
+}
+:where(.editor-styles-wrapper .sc-commerce-editor-card p),
+:where(.editor-styles-wrapper .sc-commerce-editor-stripe p) { margin: .5rem 0 0; }

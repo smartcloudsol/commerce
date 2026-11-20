@@ -1,0 +1,59 @@
+:where(.sc-commerce-control,.sc-commerce-status){box-sizing:border-box;width:100%;max-width:var(--wp--style--global--content-size,820px);margin:1rem auto}
+:where(.sc-commerce-control button){box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;max-width:100%;min-height:2.75em;padding:.8em 1.3em;border:1px solid transparent;border-radius:var(--wp--custom--radius--sm,10px);font:inherit;font-weight:650;line-height:1.35;text-decoration:none;cursor:pointer;transition:box-shadow .15s ease,opacity .15s ease}
+:where(.sc-commerce-control button:not(.has-background)){background:var(--wp--preset--color--contrast,#132033)}
+:where(.sc-commerce-control button:not(.has-text-color)){color:var(--wp--preset--color--base,#fff)}
+:where(.sc-commerce-control button.is-style-outline){border:1px solid currentColor}
+:where(.sc-commerce-control button.is-style-outline:not(.has-background)){background:transparent}
+:where(.sc-commerce-control button.is-style-outline:not(.has-text-color)){color:var(--wp--preset--color--contrast,#132033)}
+:where(.sc-commerce-control button[data-commerce-width="full"]){width:100%}
+:where(.sc-commerce-control button:hover){box-shadow:0 3px 12px #1320331a}
+:where(.sc-commerce-control button:focus-visible){outline:3px solid var(--wp--preset--color--accent-1,#1769e0);outline-offset:3px}
+:where(.sc-commerce-control button:disabled){opacity:.65;cursor:wait}
+:where(.sc-commerce-action-status){display:block;font-size:.9em;margin-top:.5rem}
+:where(.sc-commerce-action-status:empty){display:none}
+:where(.sc-commerce-status){padding:1rem 1.25rem;border:1px solid #dce3ec;border-radius:var(--wp--custom--radius--sm,12px);background:var(--wp--preset--color--base,#fff);overflow-wrap:anywhere}
+:where(.sc-commerce-status.is-style-subtle){padding:.5rem 0;border:0;background:transparent}
+:where(.sc-commerce-plans){padding-block:1.5rem}
+:where(.sc-commerce-plans>.wp-block-columns){gap:1.25rem;align-items:stretch}
+:where(.sc-commerce-plans>.wp-block-columns>.wp-block-column){display:flex;min-width:0}
+:where(.sc-commerce-plan){box-sizing:border-box;display:flex;flex-direction:column;gap:.75rem;width:100%;padding:1.75rem;border:1px solid #dce3ec;border-radius:20px;background:var(--wp--preset--color--base,#fff);color:var(--wp--preset--color--contrast,#132033);box-shadow:0 6px 24px #13203308;transition:transform .18s ease,box-shadow .18s ease}
+:where(.sc-commerce-plan-featured){border-color:var(--wp--preset--color--contrast,#132033);box-shadow:0 8px 28px #13203312}
+@media(hover:hover){:where(.sc-commerce-plan:hover){transform:translateY(-4px);box-shadow:0 14px 34px #13203320}}
+:where(.sc-commerce-plan:focus-within){box-shadow:0 14px 34px #13203320}
+:where(.sc-commerce-plan>*){margin-block:0}
+:where(.sc-commerce-plan h3){font-size:clamp(1.4rem,2vw,2rem);line-height:1.2}
+:where(.sc-commerce-eyebrow){font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sc-commerce-plan-features{font-size:var(--sc-commerce-feature-font-size,.875em);line-height:var(--sc-commerce-feature-line-height,1.45)}
+.sc-commerce-plan>.sc-commerce-control{margin-block-start:auto;padding-block-start:1rem}
+:where(ul.sc-commerce-plan-features){list-style-type:'✓  ';padding-inline-start:1.1em}
+:where(ul.sc-commerce-plan-features>li){padding-inline-start:.25em;margin-block:var(--sc-commerce-feature-gap,.25em)}
+:where(.sc-commerce-account){box-sizing:border-box;padding:1.75rem;border:1px solid #dce3ec;border-radius:20px;background:var(--wp--preset--color--base,#fff)}
+@media(max-width:480px){:where(.sc-commerce-control button){width:100%}:where(.sc-commerce-plan,.sc-commerce-account){padding:1.25rem}}
+@media(prefers-reduced-motion:reduce){:where(.sc-commerce-control button){transition:none}}
+@media(prefers-reduced-motion:reduce){:where(.sc-commerce-plan){transition:none;transform:none}}
+/* Layout for the dynamic sales-presentation block. */
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-grid){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1.25rem;align-items:stretch}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-column){display:flex;min-width:0}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-actions){display:grid;gap:1rem;min-width:0}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-action){min-width:0;margin:0}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-price){margin:0 0 .5rem}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-control,.sc-commerce-article-link) :where(a.sc-commerce-button){box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;max-width:100%;min-height:2.75em;padding:.8em 1.3em;border:1px solid transparent;border-radius:var(--wp--custom--radius--sm,10px);font:inherit;font-weight:650;line-height:1.35;text-decoration:none;cursor:pointer;transition:box-shadow .15s ease,opacity .15s ease;overflow-wrap:anywhere}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-control,.sc-commerce-article-link) :where(a.sc-commerce-button:not(.has-background)){background:var(--wp--preset--color--contrast,#132033)}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-control,.sc-commerce-article-link) :where(a.sc-commerce-button:not(.has-text-color)){color:var(--wp--preset--color--base,#fff)}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-control,.sc-commerce-article-link) :where(a.sc-commerce-button:hover){box-shadow:0 3px 12px #1320331a}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-control,.sc-commerce-article-link) :where(a.sc-commerce-button:focus-visible){outline:3px solid var(--wp--preset--color--accent-1,#1769e0);outline-offset:3px}
+:where(.wp-block-smartcloud-commerce-sales-presentation.sc-commerce-presentation-button .sc-commerce-grid){display:block}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-button-content){max-width:100%}
+:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-button-content .sc-commerce-actions){margin-inline:0}
+@media(max-width:480px){:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-control,.sc-commerce-article-link) :where(a.sc-commerce-button){width:100%}}
+@media(prefers-reduced-motion:reduce){:where(.wp-block-smartcloud-commerce-sales-presentation .sc-commerce-control,.sc-commerce-article-link) :where(a.sc-commerce-button){transition:none}}
+
+[data-commerce-subscriptions] .sc-commerce-subscription, [data-commerce-subscriptions] .sc-commerce-change-preview { border:1px solid var(--sc-commerce-border,#dce3ea);border-radius:var(--sc-commerce-radius,1rem);padding:1.5rem;margin-block:1rem; }
+[data-commerce-subscriptions] .sc-commerce-subscription-action { margin:.3rem; }
+[data-commerce-subscriptions] .sc-commerce-change-preview { background:var(--sc-commerce-preview-background,rgba(127,127,127,.05)); }
+
+.sc-commerce-access-gate {
+  max-width: 44rem;
+  margin: 4rem auto;
+  padding: 1.5rem;
+}
