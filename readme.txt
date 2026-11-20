@@ -48,12 +48,14 @@ The optional WP Suite site connection sends the site identifier, scoped site key
 
 An administrator may configure a separate Commerce API. When a signed-in visitor makes an entitlement or checkout request, the Gatey access token is sent to that API. Its operator controls its authorization and privacy practices. Optional confirmation emails use a customer's email address through the site operator's configured delivery adapter.
 
-Stripe is a trademark of Stripe, Inc. WordPress is a trademark of the WordPress Foundation. This plugin is not endorsed by or affiliated with Stripe or the WordPress Foundation.
+If the site operator deploys that service in their AWS account, AWS hosts the configured API and processes its requests. The deployment can also use Amazon Cognito for access verification and Amazon SES for optional emails. AWS provides these services under its [customer agreement](https://aws.amazon.com/agreement/) and [privacy notice](https://aws.amazon.com/privacy/). Manual Stripe embeds do not require an AWS deployment.
+
+Stripe is a trademark of Stripe, Inc. WordPress is a trademark of the WordPress Foundation. Amazon Web Services, AWS, Amazon Cognito, and Amazon SES are trademarks of Amazon.com, Inc. or its affiliates. This plugin is not affiliated with or endorsed by Stripe, Amazon Web Services, or the WordPress Foundation.
 
 == Screenshots ==
 
 1. Commerce setup in the WordPress admin.
-2. Manage Stripe Pricing Table and Buy Button IDs for reusable embeds.
+2. Manage Stripe Pricing Table IDs for reusable embeds.
 3. Configure a Commerce block in the Gutenberg editor.
 
 == Source and build ==
