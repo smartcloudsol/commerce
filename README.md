@@ -9,13 +9,13 @@ WordPress supplies React and WordPress packages; the shared Hub supplies the
 Mantine, Amplify and cryptography globals. The family assembler supplies that Hub
 payload for a complete distributable. Its source is available in the
 `wpsuite-admin`, `wpsuite-main` and vendor modules of
-[SmartCloud WP Suite](https://github.com/smartcloudsol/smartcloud-wpsuite).
+[WP Suite Hub](https://github.com/smartcloudsol/hub-for-wpsuiteio). Commerce source is available in the [SmartCloud Commerce repository](https://github.com/smartcloudsol/commerce).
 The full development workspace also has `npm test`; its test harness is excluded
 from the installed ZIP. Readable Commerce source and the build lockfile are
 included.
 
 The default build is Free. It includes the Stripe connection, catalog, sales
-presentations and manual embeds. The public source and review ZIP omit
+presentations, manual embeds and local WordPress protection with manually managed Cognito groups. The public source and review ZIP omit
 `admin/src/paid-features`. The private demo build loads its Pro settings,
 subscription rules and email editor as separate admin chunks. Set
 `WPSUITE_PREMIUM=true` only in the private workspace with those sources available.
@@ -32,7 +32,7 @@ The Hub's simplified Commerce page offers three steps: choose how to sell, confi
 The starter builder creates a Payment Link button or pricing table from explicitly selected prices. It supports one active fixed monthly, yearly or one-time price per product. Preview, Save draft and confirmed Publish are separate actions. Publish provisions the required Stripe objects for the **entire saved sales draft**, not a WordPress page. After publication, insert the **Sales presentation** block and select the saved presentation. Existing plans, rules and notification settings are retained; products already used by a saved plan are managed through Advanced settings. Access features, protected Checkout, upgrade/downgrade rules and email configuration remain in the detailed settings. Marketing feature text never grants access.
 ## WordPress route protection
 
-Private WordPress pages and media require a configured Commerce service and server-side authorization.
+Local WordPress protection uses server-side authorization with a compatible Gatey and Cognito configuration. Administrators can assign Cognito groups manually without a Commerce backend or paid WP Suite licence. Automatic synchronization of Stripe entitlements to Cognito groups and scopes requires the separately configured Commerce backend in the customer’s AWS account. Ensure alternate URLs and media copies are protected separately.
 
 # Frontend CSS hooks
 
@@ -88,14 +88,16 @@ The contract copy in Foundation is checked with `node scripts/sync-experience-co
 
 Stripe App source version **0.0.2** requests product/price/Payment Link/subscription writes and invoice previews. Existing 0.0.1 installations require an explicit version upgrade and renewed authorization before these operations can succeed. These source features do not by themselves establish deployment or sandbox E2E acceptance.
 
-The current Free candidate and private demo build carry Hub **2.7.12**. The Commerce plugin remains 0.0.0 until public release qualification. The Hub's ordinary version and ownership updates preserve the site's connection.
+The Commerce **1.0.0** release candidate carries Hub **2.7.15**; final package qualification remains necessary. The Hub's ordinary version and ownership updates preserve the site's connection.
 
 Before Commerce is submitted for approval, the shared Hub changes must also be incorporated into Gatey, AI-Kit, Flow, Static Publisher and Agent Composer, with canonical rebuilds and complete Plugin Check coverage for every package. See `docs/RELEASE-CHECKLIST.md`; the private demo update does not replace this release gate.
 
 The Free and private demo builds use the registered Hub connection for Stripe administration. They use WP Suite Core's backend-profile checks and the current site's scoped key for requests to the configured Commerce service.
 
 
-## Commerce email templates
+## Commerce email templates (private service editor)
+
+This section describes the separately distributed private service editor and configured Commerce API. The public Free build does not provide a local HTML email template editor.
 
 Configure delivery in the Commerce Cloud Deployment stack: either select the built-in SES adapter with an already verified sender identity in the deployment account and region, or supply a qualified external notification adapter ARN. The wizard exports the matching parameters. No Stripe credentials or additional Quick Launch secret entries are required for email setup.
 

@@ -1,3 +1,4 @@
+import { WordPressProtection } from "./wordpress-protection";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
@@ -90,9 +91,9 @@ const sections = [
   ["plans", __("Sales setup", "smartcloud-commerce")],
   ["pricing-tables", __("Pricing tables", "smartcloud-commerce")],
   ["buy-buttons", __("Buy buttons", "smartcloud-commerce")],
+  ["wordpress-protection", __("WordPress protection", "smartcloud-commerce")],
   ["api-settings", __("API Settings", "smartcloud-commerce")],
   ["feature-mappings", __("Feature access", "smartcloud-commerce")],
-  ["wordpress-protection", __("WordPress protection", "smartcloud-commerce")],
 ];
 const legacySalesSections = ["presentations", "subscriptions", "notifications"];
 const knownSection = (id: string) =>
@@ -1017,7 +1018,7 @@ function App({
               <Text c="dimmed" size="sm" mb="xs">
                 {__("Free features", "smartcloud-commerce")}
               </Text>
-              {sections.slice(0, 5).map(([id, label]) => (
+              {sections.slice(0, 6).map(([id, label]) => (
                 <NavLink
                   component="button"
                   type="button"
@@ -1031,9 +1032,9 @@ function App({
                 />
               ))}
               <Text c="dimmed" size="sm" mt="md" mb="xs">
-                {__("Pro features", "smartcloud-commerce")}
+                {__("Commerce services", "smartcloud-commerce")}
               </Text>
-              {sections.slice(5).map(([id, label]) => (
+              {sections.slice(6).map(([id, label]) => (
                 <NavLink
                   component="button"
                   type="button"
@@ -1323,7 +1324,10 @@ function App({
                   "buyButtonIds",
                   __("Buy button ID", "smartcloud-commerce"),
                 )}
-              {["api-settings", "feature-mappings", "wordpress-protection"].includes(section) && (
+              {section === "wordpress-protection" && WpSuiteCommerceAdmin.protectionUrl && (
+                <WordPressProtection url={WpSuiteCommerceAdmin.protectionUrl} nonce={WpSuiteCommerceAdmin.nonce} mappings={service.mappings} />
+              )}
+              {["api-settings", "feature-mappings"].includes(section) && (
                 <React.Suspense fallback={<Text role="status">{__("Loading settings…", "smartcloud-commerce")}</Text>}>
                   <SettingsEditor
                     section={section}
@@ -1340,6 +1344,7 @@ function App({
                     stripeContextKey={stripeContextKey}
                     stripeContext={stripeContext}
                     enroll={(code) => runtimeAdmin().enroll(code)}
+                    loadEventDelivery={() => runtimeAdmin().eventDelivery()}
                     askRemove={askRemove}
                   />
                 </React.Suspense>

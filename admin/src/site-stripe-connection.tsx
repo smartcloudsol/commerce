@@ -428,6 +428,14 @@ export function SiteStripeConnection(props: Props) {
             <Text>
               {connection.stripe.accountId} ({connection.stripe.mode})
             </Text>
+            {!props.compact && (
+              <Text size="sm" c="dimmed">
+                {__(
+                  "To deploy the Commerce backend, open Deployments in your WP Suite dashboard and select this WordPress site in the deployment wizard. The wizard reads the connected Stripe account and mode.",
+                  "smartcloud-commerce",
+                )}
+              </Text>
+            )}
           </>
         )}
         {connecting && (

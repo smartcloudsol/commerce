@@ -207,6 +207,24 @@ function createStripeAdminClient({
     async connection() {
       return status(await request("/admin/stripe/connection"));
     },
+    async eventDelivery() {
+      const value = await request("/admin/stripe/event-delivery");
+      const required = ["transport", "stripeAccountId", "mode", "awsAccountId", "region", "partnerSource", "eventBusName"];
+      fields(value, [...required, "ruleArn"], required);
+      if (
+        value.transport !== "eventbridge" ||
+        !str(value.stripeAccountId, /^acct_[A-Za-z0-9]{1,128}$/) ||
+        !["test", "live"].includes(value.mode) ||
+        !str(value.awsAccountId, /^\d{12}$/) ||
+        !str(value.region, /^[a-z]{2}(?:-[a-z]+)+-\d$/) ||
+        !str(value.partnerSource, /^aws\.partner\/stripe\.com\/[A-Za-z0-9_.\/-]{1,240}$/) ||
+        !str(value.eventBusName, /^[A-Za-z0-9_.\/-]{1,256}$/) ||
+        (value.ruleArn !== undefined &&
+          (!str(value.ruleArn, /^arn:aws:events:[a-z0-9-]+:\d{12}:rule\/[A-Za-z0-9_.\/-]{1,350}$/) ||
+            !value.ruleArn.startsWith(`arn:aws:events:${value.region}:${value.awsAccountId}:rule/`)))
+      ) throw Error("Invalid Stripe event delivery response");
+      return value;
+    },
     async connect() {
       return authorization(await request("/admin/stripe/connect", "POST", {}));
     },

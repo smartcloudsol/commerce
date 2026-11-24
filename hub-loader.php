@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
 
 use SmartCloud\WPSuite\Commerce\Logger;
 
-const SMARTCLOUD_WPSUITE_COMMERCE_HUB_VERSION = '2.7.12';
+const SMARTCLOUD_WPSUITE_COMMERCE_HUB_VERSION = '2.7.15';
 
 final class CommerceHubLoader
 {
